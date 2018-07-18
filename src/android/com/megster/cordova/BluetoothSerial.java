@@ -21,6 +21,7 @@ import java.util.Set;
     // actions
     private static final String LIST = "list";
     private static final String CONNECT = "connect";
+    private static final String CONNECT_INSECURE = "connectInsecure";
     private static final String DISCONNECT = "disconnect";
     private static final String WRITE = "write";
     private static final String AVAILABLE  = "available";
@@ -179,7 +180,7 @@ import java.util.Set;
 
         if (device != null) {
             connectCallback = callbackContext;
-            bluetoothSerialService.connect(device, true);
+            bluetoothSerialService.connect(device, false);
 
             PluginResult result = new PluginResult(PluginResult.Status.NO_RESULT);
             result.setKeepCallback(true);
@@ -286,3 +287,4 @@ import java.util.Set;
         return data;
     }
 }
+
