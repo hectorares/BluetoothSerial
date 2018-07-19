@@ -257,11 +257,12 @@ public class BluetoothSerialService {
             mSocketType = secure ? "Secure":"Insecure";
 
             // Create a new listening server socket
+             // Create a new listening server socket
             try {
                 if (secure) {
-                    tmp = mAdapter.listenUsingInsecureRfcommWithServiceRecord(NAME_INSECURE, "00001101-0000-1000-8000-00805F9B34FB");
+                    tmp = mAdapter.listenUsingRfcommWithServiceRecord(NAME_SECURE, MY_UUID_SECURE);
                 } else {
-                    tmp = mAdapter.listenUsingInsecureRfcommWithServiceRecord(NAME_INSECURE, "00001101-0000-1000-8000-00805F9B34FB");
+                    tmp = mAdapter.listenUsingInsecureRfcommWithServiceRecord(NAME_INSECURE, MY_UUID_INSECURE);
                 }
             } catch (IOException e) {
                 Log.e(TAG, "Socket Type: " + mSocketType + "listen() failed", e);
